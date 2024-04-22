@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "csv-parse": "^5.5.5",
+    "cypress": "^13.8.0"
+  }
+}

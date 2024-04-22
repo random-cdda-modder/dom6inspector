@@ -1,2 +1,4 @@
 /bin/
 *.prefs
+/node_modules/
+/cypress/screenshots/
