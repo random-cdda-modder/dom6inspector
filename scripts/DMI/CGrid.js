@@ -27,7 +27,7 @@ const isUserUsingMobile = () => {
     	isMobile = ('ontouchstart' in window);
 	}
 
-	if !(isMobile) {
+	if (!isMobile) {
 		try{ document.createEvent("TouchEvent"); isMobile = true; }
   		catch(e) { isMobile = false; }
 	}
