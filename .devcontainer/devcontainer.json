@@ -12,7 +12,14 @@
 	// "forwardPorts": [],
 
 	// Uncomment the next line to run commands after the container is created.
-	"postCreateCommand": "jekyll serve --force-polling"
+	"postCreateCommand": "jekyll serve --force-polling",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"eamodio.gitlens"
+			]
+		}
+	}
 
 	// Configure tool-specific properties.
 	// "customizations": {},
