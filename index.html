@@ -56,6 +56,7 @@
 	<script type="text/javascript" src="scripts/DMI/MSite.js?v=30"></script>
 	<script type="text/javascript" src="scripts/DMI/MMerc.js?v=30"></script>
 	<script type="text/javascript" src="scripts/DMI/MEvent.js?v=30"></script>
+	<script type="text/javascript" src="scripts/DMI/MBooster.js?v=30"></script>
 	<script type="text/javascript" src="scripts/DMI/bitfields.js?v=30"></script>
 	
 	<script type="text/javascript" src="scripts/main.js?v=30"></script>
@@ -75,6 +76,14 @@
         $('#nation').append(maOption).trigger('change');
 		var laOption = new Option("Late era", "LA", false, false);
         $('#nation').append(laOption).trigger('change');
+        
+		$("#pretender-chassis").select2({
+		    placeholder: 'choose a pretender'
+		});
+		
+		var newOption = new Option("choose a pretender", "choose a pretender", true, true);
+		newOption.disabled = true;
+        $('#pretender-chassis').append(newOption).trigger('change');
         
 	});
 	
@@ -142,6 +151,7 @@
 			<button id="site-page-button"  class="page-button" value="sites">Site</button>
 			<button id="merc-page-button"  class="page-button" value="mercs">Merc</button>
 			<button id="event-page-button"  class="page-button" value="event">Event</button>
+			<button id="booster-page-button"  class="page-button" value="booster">Booster</button>
             <button id="wpn-page-button"  class="page-button hidden-inline" value="wpns">Wp</button>
             <button id="armor-page-button"  class="page-button hidden-inline" value="armor">Ar</button>
 		</div>
@@ -410,7 +420,7 @@
 
         
         <!-- SELECT NATION -->
-        <div class="filters-nation  panel itemview unitview spellview">
+        <div class="filters-nation  panel itemview unitview spellview boosterview">
             <input type="button" value="X" class="clear-filters-btn" title="clear filters" />
 			<select class="nation" id="nation" style="width:300px;">
 			<!-- Dropdown List Option -->
@@ -418,6 +428,14 @@
 		</div>
         <!-- /SELECT NATION -->
 
+		<!-- SELECT PRETENDER CHASSIS -->
+        <div class="filters-pretender-chassis  panel boosterview">
+            <input type="button" value="X" class="clear-filters-btn" title="clear filters" />
+			<select class="pretender-chassis" id="pretender-chassis" style="width:300px;">
+			<!-- Dropdown List Option -->
+			</select>
+		</div>
+		<!-- /SELECT PRETENDER CHASSIS -->
 
         <!-- SELECT UNIT TYPE -->
 		<div class="filters-units  panel unitview">
@@ -660,6 +678,68 @@
 			<input type="button" value="0" class="zero-levels-btn" title="zero levels" />
 		</div>
     <!-- /PATHLEVEL CHECKBOXES LINE1 -->
+
+		<!-- PATHLEVEL CHECKBOXES LINE1 -->
+		<div class="filters-pathlevels  panel boosterview">
+			<input type="button" value="X" class="clear-filters-btn" title="clear filters" />
+
+			<label for="pathFlevel"><img alt="F" class="Path_F pathicon" src="images/magicicons/Path_F.png"
+			/><input class="level-path" type='number' value='0' min='0' max='9' id="pathFlevel" name="F" disabled="disabled"
+			/></label>
+
+			<label for="pathAlevel"><img alt="A" class="Path_A pathicon" src="images/magicicons/Path_A.png"
+			/><input class="level-path" type='number' value='0' min='0' max='9' id="pathAlevel" name="A" disabled="disabled"
+			/></label>
+
+			<label for="pathWlevel"><img alt="W" class="Path_W pathicon" src="images/magicicons/Path_W.png"
+			/><input class="level-path" type='number' value='0' min='0' max='9' id="pathWlevel" name="W" disabled="disabled"
+			/></label>
+
+			<label for="pathElevel"><img alt="E" class="Path_E pathicon" src="images/magicicons/Path_E.png"
+			/><input class="level-path" type='number' value='0' min='0' max='9' id="pathElevel" name="E" disabled="disabled"
+			/></label>
+
+			<label for="pathHlevel"><img alt="H" class="Path_H pathicon" src="images/magicicons/Path_H.png"
+			/><input class="level-path" type='number' value='0' min='0' max='9' id="pathHlevel" name="H" disabled="disabled"
+			/></label>
+
+			<br/>
+
+			<label for="pathSlevel"><img alt="S" class="Path_S pathicon" src="images/magicicons/Path_S.png"
+			/><input class="level-path" type='number' value='0' min='0' max='9' id="pathSlevel" name="S" disabled="disabled"
+			/></label>
+
+			<label for="pathDlevel"><img alt="D" class="Path_D pathicon" src="images/magicicons/Path_D.png"
+			/><input class="level-path" type='number' value='0' min='0' max='9' id="pathDlevel" name="D" disabled="disabled"
+			/></label>
+
+			<label for="pathNlevel"><img alt="N" class="Path_N pathicon" src="images/magicicons/Path_N.png"
+			/><input class="level-path" type='number' value='0' min='0' max='9' id="pathNlevel" name="N" disabled="disabled"
+			/></label>
+
+			<label for="pathGlevel"><img alt="G" class="Path_G pathicon" src="images/magicicons/Path_G.png"
+			/><input class="level-path" type='number' value='0' min='0' max='9' id="pathGlevel" name="G" disabled="disabled"
+			/></label>
+
+			<label for="pathBlevel"><img alt="B" class="Path_B pathicon" src="images/magicicons/Path_B.png"
+			/><input class="level-path" type='number' value='0' min='0' max='9' id="pathBlevel" name="B" disabled="disabled"
+			/></label>
+
+			<input type="button" value="0" class="zero-levels-btn" title="zero levels" />
+		</div>
+    <!-- /PATHLEVEL CHECKBOXES LINE1 -->
+
+		<div class="filters-indies panel boosterview">
+			TODO add available indies selector here
+		</div>
+
+		<div class="filters-uniqueboosters panel boosterview">
+			TODO add "ignore const9 unique boosters" checkbox here
+		</div>
+
+		<div class="filters-generate-report panel boosterview">
+			<input type="button" value="Generate a magic accessibility report from these options" class="generate-report-btn" title="Generate a magic accessibility report for these options" />
+		</div>
 
         <!-- ITEM FILTERS LINE1 -->
 		<div class="filters-items  panel itemview">
@@ -951,6 +1031,15 @@
 
 	<div id="event-page" class="page" style="display:none;">
 		<div class="grid-container"></div>
+		<div class="static-overlay-container">
+			<div class="primary-overlay"></div>
+			<div class="fixed-overlay overlay"></div>
+		</div>
+	</div>
+
+	<div id="booster-page" class="page" style="display:none;">
+		<div class="grid-container"></div>
+		<div class="report-container"></div>
 		<div class="static-overlay-container">
 			<div class="primary-overlay"></div>
 			<div class="fixed-overlay overlay"></div>

@@ -50,9 +50,11 @@ DMI.initGrids = function() {
 
 			if (DMI.isFirefoxBrowser()) {
 				$(".grid-container").css({left:'430px'})
+				$(".report-container").css({left:'430px'})
 				$("div.static-overlay-container").css({width:'430px'})
 			} else {
 				$(".grid-container").css({left:'375px'})
+				$(".report-container").css({left:'375px'})
 				$("div.static-overlay-container").css({width:'375px'})
 			}
 
@@ -73,9 +75,11 @@ DMI.initGrids = function() {
 
 			if (DMI.isFirefoxBrowser()) {
 				$(".grid-container").css({left:'350px'})
+				$(".report-container").css({left:'350px'})
 				$("div.static-overlay-container").css({width:'350px'})
 			} else {
 				$(".grid-container").css({left:'343px'})
+				$(".report-container").css({left:'343px'})
 				$("div.static-overlay-container").css({width:'343px'})
 			}
 
@@ -190,6 +194,7 @@ DMI.initGrids = function() {
 		if (armorgrid) armorgrid.hide();
 		if (mercgrid) mercgrid.hide();
 		if (eventgrid) eventgrid.hide();
+		if (boostergrid) boostergrid.hide();
 
 		if (!itemgrid)
 			itemgrid = new DMI.MItem.CGrid();
@@ -215,6 +220,7 @@ DMI.initGrids = function() {
 		if (armorgrid) armorgrid.hide();
 		if (mercgrid) mercgrid.hide();
 		if (eventgrid) eventgrid.hide();
+		if (boostergrid) boostergrid.hide();
 
 		if (!sitegrid)
 			sitegrid = new DMI.MSite.CGrid();
@@ -240,6 +246,7 @@ DMI.initGrids = function() {
 		if (armorgrid) armorgrid.hide();
 		if (mercgrid) mercgrid.hide();
 		if (eventgrid) eventgrid.hide();
+		if (boostergrid) boostergrid.hide();
 
 		if (!mercgrid)
 			mercgrid = new DMI.MMerc.CGrid();
@@ -265,6 +272,7 @@ DMI.initGrids = function() {
 		if (armorgrid) armorgrid.hide();
 		if (mercgrid) mercgrid.hide();
 		if (eventgrid) eventgrid.hide();
+		if (boostergrid) boostergrid.hide();
 
 		if (!eventgrid)
 			eventgrid = new DMI.MEvent.CGrid();
@@ -290,6 +298,7 @@ DMI.initGrids = function() {
 		if (armorgrid) armorgrid.hide();
 		if (mercgrid) mercgrid.hide();
 		if (eventgrid) eventgrid.hide();
+		if (boostergrid) boostergrid.hide();
 
 		if (!spellgrid)
 			spellgrid = new DMI.MSpell.CGrid();
@@ -315,6 +324,7 @@ DMI.initGrids = function() {
 		if (armorgrid) armorgrid.hide();
 		if (mercgrid) mercgrid.hide();
 		if (eventgrid) eventgrid.hide();
+		if (boostergrid) boostergrid.hide();
 
 		if (!unitgrid)
 			unitgrid = new DMI.MUnit.CGrid();
@@ -329,6 +339,31 @@ DMI.initGrids = function() {
 		DMI.Utils.saveState();
 	});
 
+	var boostergrid = null;
+	$("#booster-page-button").click(function(e){
+
+		if (spellgrid) spellgrid.hide();
+		if (sitegrid) sitegrid.hide();
+		if (itemgrid) itemgrid.hide();
+		if (unitgrid) unitgrid.hide();
+		if (wpngrid) wpngrid.hide();
+		if (armorgrid) armorgrid.hide();
+		if (mercgrid) mercgrid.hide();
+		if (eventgrid) eventgrid.hide();
+		//if (boostergrid) boostergrid.hide();
+
+		if (!boostergrid)
+			boostergrid = new DMI.MBooster.CGrid();
+
+		boostergrid.show();
+		$(".page-button").prop('disabled', false).removeClass('disabled');
+		$("#booster-page-button").prop('disabled', true).addClass('disabled');
+
+		//TODO: focus search box
+		//$("div.filters-text.boosterview input.search-box").focus();
+
+		DMI.Utils.saveState();
+	});
 
 	var wpngrid = null;
 	$("#wpn-page-button").click(function(e){
@@ -341,6 +376,7 @@ DMI.initGrids = function() {
 		if (armorgrid) armorgrid.hide();
 		if (mercgrid) mercgrid.hide();
 		if (eventgrid) eventgrid.hide();
+		if (boostergrid) boostergrid.hide();
 
 		if (!wpngrid)
 			wpngrid = new DMI.MWpn.CGrid();
@@ -367,6 +403,7 @@ DMI.initGrids = function() {
 		//if (armorgrid) armorgrid.hide();
 		if (mercgrid) mercgrid.hide();
 		if (eventgrid) eventgrid.hide();
+		if (boostergrid) boostergrid.hide();
 
 		if (!armorgrid)
 			armorgrid = new DMI.MArmor.CGrid();

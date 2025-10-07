@@ -37,6 +37,21 @@ body {overflow:hidden;}
 	padding-right:0.5em;
 }
 
+/****************************************
+	report 
+****************************************/
+
+.report-container {
+	position: absolute;
+	top: 0;
+	left: 335px;
+	bottom: 0;
+	/*right: 0;*/
+	z-index: 1;
+	
+	width: 600px;
+	background-color: #F6F6F6;
+}
 
 /****************************************
 	ids 
